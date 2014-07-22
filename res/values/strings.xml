@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WawaFinder</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- Action Bar Strings -->
+    <string name="action_near_me">Near Me</string>
+    <string name="action_search">Search</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_exit">Exit</string>
+    <string name="title_activity_near_me">NearMeActivity</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+</resources>
