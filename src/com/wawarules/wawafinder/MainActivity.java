@@ -20,11 +20,26 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         
-        if (savedInstanceState == null) {
+        
+        
+        if (findViewById(R.id.fragment_container) != null) {
+
+            // However, if we're being restored from a previous state,
+            // then we don't need to do anything and should return or else
+            // we could end up with overlapping fragments.
+            if (savedInstanceState != null) {
+                return;
+            }
+            
+            MainFragment mainFrag = new MainFragment();
+            
+            
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.fragment_container, mainFrag)
                     .commit();
         }
+        
+        
     }
 
 
@@ -59,18 +74,27 @@ public class MainActivity extends ActionBarActivity {
     }
     
     public void openSearch(){
-    	Intent intent = new Intent(this, SearchActivity.class);
-    	startActivity(intent);
+    	SearchFragment searchFrag = new SearchFragment();
+    	getSupportFragmentManager().beginTransaction()
+    		.replace(R.id.fragment_container, searchFrag)
+    		.addToBackStack(null)
+    		.commit();
     }
     
     public void openNearMe(){
-    	Intent intent = new Intent(this, NearMeActivity.class);
-    	startActivity(intent);
+    	NearMeFragment nearMeFrag = new NearMeFragment();
+    	getSupportFragmentManager().beginTransaction()
+    		.replace(R.id.fragment_container, nearMeFrag)
+    		.addToBackStack(null)
+    		.commit();
     }
     
     public void openSettings(){
-    	Intent intent = new Intent(this, SettingsActivity.class);
-    	startActivity(intent);
+    	SettingsFragment settingsFrag = new SettingsFragment();
+    	getSupportFragmentManager().beginTransaction()
+    		.replace(R.id.fragment_container, settingsFrag)
+    		.addToBackStack(null)
+    		.commit();
     }
     
     

@@ -3,6 +3,14 @@
 
     <string name="app_name">WawaFinder</string>
     <string name="hello_world">Hello world!</string>
+    
+    
+    <!-- Main Fragment String -->
+     <string name="main_fragment">This is the main fragment</string>
+     <string name="near_me_fragment">This is the near me fragment</string>
+     <string name="search_fragment">This is the search fragment</string>
+     <string name="settings_fragment">This is the settings fragment</string>
+    
 
     <!-- Action Bar Strings -->
     <string name="action_near_me">Near Me</string>
