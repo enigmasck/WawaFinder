@@ -12,7 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity 
+	implements MainFragment.MainFragmentSelectedListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,20 +33,17 @@ public class MainActivity extends ActionBarActivity {
             }
             
             MainFragment mainFrag = new MainFragment();
-            
-            
+
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, mainFrag)
                     .commit();
         }
         
-        
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+        	
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_activity_actions, menu);
         return true;
@@ -97,6 +95,10 @@ public class MainActivity extends ActionBarActivity {
     		.commit();
     }
     
+    public void sendMessageToMainFrag(String someMessage){
+    	MainFragment mFrag =  (MainFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_main);
+    	mFrag.setText(getResources().getString(R.string.test_string));
+    }
     
 
     /**
