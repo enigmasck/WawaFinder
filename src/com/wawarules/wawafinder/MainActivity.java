@@ -40,6 +40,10 @@ public class MainActivity extends ActionBarActivity
         }
         
     }
+    
+    protected void onStop(){
+    	super.onStop();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,6 +69,9 @@ public class MainActivity extends ActionBarActivity
         		return true;
         	case R.id.action_settings:
         		openSettings();
+        		return true;
+        	case R.id.action_exit:
+        		exit();
         		return true;
         	default:
         		return super.onOptionsItemSelected(item);
@@ -95,9 +102,19 @@ public class MainActivity extends ActionBarActivity
     		.commit();
     }
     
+    public void exit(){
+    	Intent intent = new Intent(Intent.ACTION_MAIN);
+    	intent.addCategory(Intent.CATEGORY_HOME);
+    	intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    	startActivity(intent);
+    }
+    
     public void sendMessageToMainFrag(String someMessage){
     	MainFragment mFrag =  (MainFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_main);
-    	mFrag.setText(getResources().getString(R.string.test_string));
+    	if(someMessage == null){
+    		someMessage = getResources().getString(R.string.test_string);
+    	}
+    	mFrag.setText(someMessage);
     }
     
 

@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class MainFragment extends Fragment{
@@ -41,6 +41,11 @@ public class MainFragment extends Fragment{
     }
     
     public void setText(String newText){
-    	EditText editFragText = (EditText) findViewById(R.id.main_fragment_text_view);
+    	TextView mfTextView = (TextView) getActivity().findViewById(R.id.main_fragment_text_view);
+    	mfTextView.setText(newText);
+    }
+    
+    public void changeText(){
+    	mCallback.sendMessageToMainFrag("This text is coming from the Main Fragment by frag message sending");
     }
 }

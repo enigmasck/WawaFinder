@@ -23,5 +23,8 @@
     
     <!--  test string -->
     <string name="test_string">This is a test</string>
+    
+    <!--  main fragment resource strings -->
+    <string name="main_frag_change_text_button">Change Text!</string>
 
 </resources>
