@@ -14,12 +14,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_fragment" />
+
     <Button
         android:id="@+id/main_fragment_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@id/main_frag_change_text_button"
-        android:onClick="changeText" />
-        
+        android:layout_alignLeft="@+id/main_fragment_text_view"
+        android:layout_below="@+id/main_fragment_text_view"
+        android:layout_marginTop="25dp"
+        android:text="@string/main_frag_change_text_button" />
 
 </RelativeLayout>

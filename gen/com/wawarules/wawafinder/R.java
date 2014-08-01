@@ -1166,6 +1166,10 @@ containing a value of this type.
         public static final int action_settings=0x7f0a0015;
         public static final int app_name=0x7f0a000d;
         public static final int hello_world=0x7f0a000e;
+        public static final int main_frag_change_text=0x7f0a001c;
+        /**   main fragment resource strings 
+         */
+        public static final int main_frag_change_text_button=0x7f0a001b;
         /**  Main Fragment String 
          */
         public static final int main_fragment=0x7f0a000f;

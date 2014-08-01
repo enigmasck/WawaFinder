@@ -3,8 +3,10 @@ package com.wawarules.wawafinder;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -114,7 +116,27 @@ public class MainActivity extends ActionBarActivity
     	if(someMessage == null){
     		someMessage = getResources().getString(R.string.test_string);
     	}
-    	mFrag.setText(someMessage);
+    	Log.i("MainActivity","sendMessageToMainFrag()");
+    	if(mFrag != null){
+    		//in two pane layout and the mFrag is available
+    		mFrag.setText(someMessage);
+    	} else{
+            // Create fragment and give it an argument for the selected article
+    		MainFragment newMainFrag = new MainFragment();
+            Bundle args = new Bundle();
+            args.putString(MainFragment.NEW_TEXT, someMessage);
+            newMainFrag.setArguments(args);
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack so the user can navigate back
+            transaction.replace(R.id.fragment_container, newMainFrag);
+            transaction.addToBackStack(null);
+
+            // Commit the transaction
+            transaction.commit();
+    	}
+    	
     }
     
 

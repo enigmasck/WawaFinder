@@ -26,5 +26,6 @@
     
     <!--  main fragment resource strings -->
     <string name="main_frag_change_text_button">Change Text!</string>
+    <string name="main_frag_change_text">This text is coming from the Main Fragment by frag message sending</string>
 
 </resources>
